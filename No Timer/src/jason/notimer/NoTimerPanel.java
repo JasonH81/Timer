@@ -68,6 +68,7 @@ public class NoTimerPanel extends JPanel implements Runnable {
 		repaint();
 	}
 	
+	//test
 	public long getTime() {
 		return time;
 	}
