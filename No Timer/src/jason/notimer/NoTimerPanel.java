@@ -68,6 +68,10 @@ public class NoTimerPanel extends JPanel implements Runnable {
 		repaint();
 	}
 	
+	public long getTime() {
+		return time;
+	}
+	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.setColor(Color.BLACK);
