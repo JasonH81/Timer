@@ -9,7 +9,7 @@ import java.awt.Graphics;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class NoTimerPanel extends JPanel {
+public class NoTimerPanel extends JPanel implements Runnable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -17,6 +17,7 @@ public class NoTimerPanel extends JPanel {
 	private int height = 24;
 	private String timeString = "00:00:00";
 	private long time = 10;
+	private Thread timerThread;
 	
 	public NoTimerPanel(long time, Font font) {
 		setTime(time);
@@ -27,10 +28,22 @@ public class NoTimerPanel extends JPanel {
 	}
 	
 	public void start() {
+		stop();
+		timerThread = new Thread(this);
+		timerThread.start();
+	}
+	
+	public void stop() {
+		if (timerThread!=null) {
+		timerThread.interrupt();
+		timerThread = null;
+		}
+	}
+	
+	public void run() {
 		while(time>0) {
 			time-=1;
 			setTime(time);
-			System.out.println(time);
 			try {
 				Thread.sleep(1000);
 			}
@@ -50,7 +63,7 @@ public class NoTimerPanel extends JPanel {
 		this.time = time;
 		long h = time/3600;
 		long m = (time/60) % 60;
-		long s = time&60;
+		long s = time%60;
 		timeString = String.format("%02d:%02d:%02d", h, m, s);
 		repaint();
 	}

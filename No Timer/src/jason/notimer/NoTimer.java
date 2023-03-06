@@ -21,7 +21,7 @@ public class NoTimer extends JFrame {
 	private NoTimerPanel timerPanel = new NoTimerPanel(10, font);
 	
 	public NoTimer() {
-		//test
+		
 		initGUI();
 		
 		setTitle("My Timer");
@@ -49,10 +49,22 @@ public class NoTimer extends JFrame {
 			}
 		});
 		buttonPanel.add(startButton);
+		
+		JButton stopButton = new JButton("Stop");
+		stopButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				stop();
+			}
+		});
+		buttonPanel.add(stopButton);
 	}
 	
 	private void start() {
 		timerPanel.start();
+	}
+	
+	private void stop() {
+		timerPanel.stop();
 	}
 
 	public static void main(String[] args) {
