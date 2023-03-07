@@ -18,7 +18,7 @@ public class NoTimer extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
 	private Font font = new Font(Font.DIALOG, Font.BOLD, 36);
-	private NoTimerPanel timerPanel = new NoTimerPanel(10, font);
+	private NoTimerPanel timerPanel = new NoTimerPanel(0, font);
 	
 	public NoTimer() {
 		
@@ -42,6 +42,31 @@ public class NoTimer extends JFrame {
 		
 		JPanel buttonPanel = new JPanel();
 		add(buttonPanel, BorderLayout.PAGE_END);
+		
+		JButton hoursButton = new JButton("Hour");
+		hoursButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				addAnHour();
+			}
+		});
+		buttonPanel.add(hoursButton);
+		
+		JButton minutesButton = new JButton("Min");
+		minutesButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				addAMinute();
+			}
+		});
+		buttonPanel.add(minutesButton);
+		
+		JButton clearButton = new JButton("Clear");
+		clearButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				clear();
+			}
+		});
+		buttonPanel.add(clearButton);
+		
 		JButton startButton = new JButton("Start");
 		startButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -57,6 +82,23 @@ public class NoTimer extends JFrame {
 			}
 		});
 		buttonPanel.add(stopButton);
+	}
+	
+	private void addAnHour() {
+		long time = timerPanel.getTime();
+		time+=3600;
+		timerPanel.setTime(time);
+	}
+	
+	private void addAMinute() {
+		long time = timerPanel.getTime();
+		time+=60;
+		timerPanel.setTime(time);
+	}
+	
+	private void clear() {
+		timerPanel.stop();
+		timerPanel.setTime(0);
 	}
 	
 	private void start() {
