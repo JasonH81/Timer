@@ -22,7 +22,7 @@ public class NoTimer extends JFrame {
 	private NoTimerPanel timerPanel = new NoTimerPanel(0, font);
 	
 	public NoTimer() {
-		
+		//test
 		initGUI();
 		
 		setTitle("My Timer");
