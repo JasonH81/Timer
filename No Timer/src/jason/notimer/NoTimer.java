@@ -32,7 +32,7 @@ public class NoTimer extends JFrame {
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
-//no
+//no1
 	private void initGUI() {
 		TitleLabel titleLabel = new TitleLabel("My Timer");
 		add(titleLabel, BorderLayout.PAGE_START);
