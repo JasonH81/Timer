@@ -7,6 +7,6 @@
 //}
 
 dependencies {
-    implementation project(':My_Common_Methods')
-    implementation project(':My_Components')
+    implementation project(path: 'C:/Users/jphoe/OneDrive/eclipse-workspace/My Common Methods', configuration: 'default')
+    implementation project(path: 'C:/Users/jphoe/OneDrive/eclipse-workspace/My Components', configuration: 'default')
 }
