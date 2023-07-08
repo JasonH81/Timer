@@ -7,6 +7,6 @@
 //}
 
 dependencies {
-    implementation project(':My Common Methods')
-    implementation project(':My Components')
+    implementation project(':My_Common_Methods')
+    implementation project(':My_Components')
 }
